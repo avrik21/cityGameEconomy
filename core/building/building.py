@@ -4,8 +4,8 @@ class Building:
         self.__name = name
         self.__construction_cost = construction_cost
         self.__maintenance_cost = maintenance_cost
-        self.increase_id()
         self.__id = self.__number_id
+        Building.__number_id += 1
 
     def get_name(self):
         return self.__name
@@ -16,5 +16,5 @@ class Building:
     def get_maintenance_cost(self):
         return self.__maintenance_cost
 
-    def increase_id(self):
-        self.__number_id += 1
+    def get_id(self):
+        return self.__id

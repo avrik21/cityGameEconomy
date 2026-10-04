@@ -20,6 +20,9 @@ class City:
     def remove_building(self, building):
         self.__buildings.remove(building)
 
+    def get_buildings(self):
+        return self.__buildings
+
     def add_money(self, amount):
         if not isinstance(amount, int):
             return "NOT_INTEGER"
