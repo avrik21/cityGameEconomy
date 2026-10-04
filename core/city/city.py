@@ -14,43 +14,56 @@ class City:
         return self.__food
 
     def add_money(self, amount):
-        if not amount >= 0 or not isinstance(amount, int):
-            return False
+        if not amount >= 0:
+            return "INSUFFICIENT_MONEY"
+        if not isinstance(amount, int):
+            return "NOT_INTEGER"
 
         self.__money += amount
-        return True
+        return "SUCCESS"
 
     def spend_money(self, amount):
-        if not amount > self.__money or not isinstance(amount, int):
-            return False
+        if not amount > self.__money:
+            return "INSUFFICIENT_MONEY"
+        if not isinstance(amount, int):
+            return "NOT_INTEGER"
 
         self.__money -= amount
-        return True
+        return "SUCCESS"
 
     def add_citizens(self, amount):
-        if not amount >= 0 or not isinstance(amount, int):
-            return False
+        if not amount >= 0:
+            return "INSUFFICIENT_CITIZENS"
+        if not isinstance(amount, int):
+            return "NOT_INTEGER"
 
         self.__citizens += amount
-        return True
+        return "SUCCESS"
 
     def remove_citizens(self, amount):
-        if not amount > self.__citizens or not isinstance(amount, int):
-            return False
+        if not amount > self.__citizens:
+            return "INSUFFICIENT_CITIZENS"
+        if not isinstance(amount, int):
+            return "NOT_INTEGER"
+        
 
         self.__citizens -= amount
-        return True
+        return "SUCCESS"
         
     def add_food(self, amount):
-        if not amount > 0 or not isinstance(amount, int):
-            return False
+        if not amount >= 0:
+            return "INSUFFICIENT_FOOD"
+        if not isinstance(amount, int):
+            return "NOT_INTEGER"
 
         self.__food += amount
-        return True
+        return "SUCCESS"
 
     def spend_food(self, amount):
-        if not amount > self.__food or not isinstance(amount, int):
-            return False
+        if not amount > self.__food:
+            return "INSUFFICIENT_FOOD"
+        if not isinstance(amount, int):
+            return "NOT_INTEGER"
 
         self.__food -= amount
-        return True
+        return "SUCCESS"
