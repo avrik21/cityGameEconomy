@@ -3,6 +3,7 @@ class City:
         self.__money = 1000
         self.__citizens = 100
         self.__food = 300
+        self.__buildings = []
 
     def get_money(self):
         return self.__money
@@ -12,6 +13,12 @@ class City:
 
     def get_food(self):
         return self.__food
+
+    def add_building(self, building):
+        self.__buildings.append(building)
+        
+    def remove_building(self, building):
+        self.__buildings.remove(building)
 
     def add_money(self, amount):
         if not isinstance(amount, int):
@@ -67,3 +74,5 @@ class City:
 
         self.__food -= amount
         return "SUCCESS"
+
+city = City()
