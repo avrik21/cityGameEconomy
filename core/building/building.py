@@ -1,11 +1,11 @@
-class Building:
-    __id = 1
-    
+class Building:    
+    __number_id = 1
     def __init__(self, name, construction_cost, maintenance_cost):
         self.__name = name
         self.__construction_cost = construction_cost
         self.__maintenance_cost = maintenance_cost
-        self.__id += 1
+        self.increase_id()
+        self.__id = self.__number_id
 
     def get_name(self):
         return self.__name
@@ -15,3 +15,6 @@ class Building:
 
     def get_maintenance_cost(self):
         return self.__maintenance_cost
+
+    def increase_id(self):
+        self.__number_id += 1

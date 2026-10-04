@@ -1,5 +1,5 @@
 # from core.building.building import Building
-from ..building import Building
+from core.building.building import Building
 
 class Farm(Building):
     def __init__(self, name, construction_cost, maintenance_cost):
@@ -13,14 +13,3 @@ class Farm(Building):
         self.food_per_cycle += 50
         self.level += 1
         return "SUCCESS"
-
-
-farm1 = Farm("farm", 1000, 100)
-farm2 = Farm("farm", 1000, 100)
-farm3 = Farm("farm", 1000, 100)
-farm4 = Farm("farm", 1000, 100)
-
-print(farm1.__dict__)
-print(farm2.__dict__)
-print(farm3.__dict__)
-print(farm4.__dict__)
