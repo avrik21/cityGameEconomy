@@ -9,7 +9,7 @@ class Farm(Building):
 
     def upgrade_farm(self):
         if self.level == 5:
-            return "MAXLEVEL"
+            return "MAX_LEVEL"
         self.food_per_cycle += 50
         self.level += 1
         return "SUCCESS"

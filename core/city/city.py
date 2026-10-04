@@ -77,5 +77,3 @@ class City:
 
         self.__food -= amount
         return "SUCCESS"
-
-city = City()
