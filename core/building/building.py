@@ -1,14 +1,14 @@
 class Building:
     def __init__(self, name, construction_cost, maintenance_cost):
-        self.name = name
-        self.construction_cost = construction_cost
-        self.maintenance_cost = maintenance_cost
+        self.__name = name
+        self.__construction_cost = construction_cost
+        self.__maintenance_cost = maintenance_cost
 
     def get_name(self):
-        return self.name
+        return self.__name
 
     def get_construction_cost(self):
-        return self.construction_cost
+        return self.__construction_cost
 
     def get_maintenance_cost(self):
-        return self.maintenance_cost
+        return self.__maintenance_cost
