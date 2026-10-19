@@ -1,5 +1,3 @@
-import copy
-
 class City:
     def __init__(self):
         self.__money = 1000
@@ -23,10 +21,7 @@ class City:
         self.__buildings.remove(building)
 
     def get_buildings(self):
-        result = []
-        for item in self.__buildings:
-            result.append(copy.deepcopy(item))
-        return result
+        return self.__buildings.copy()
 
     def add_money(self, amount):
         if not isinstance(amount, int):
