@@ -30,13 +30,11 @@ city.add_building(factory2)
 city.add_building(factory3)
 city.add_building(factory4)
 
-farm_manager.upgrade_farm(1)
+print(farm_manager.upgrade_farm(4))
 
 print(city.get_food())
 
-product_manager.add_food()
+print(product_manager.add_food())
 
 print(city.get_food())
 
-for i in city.get_buildings():
-    print(i.__dict__)
