@@ -22,5 +22,7 @@ class ProductionManager:
         if result_food == 0:
             return "NO_FOOD"
 
-        self.city.add_food(result_food)
-        return "SUCCESS"
+        result = self.city.add_food(result_food)
+        if result == "SUCCESS":
+            return "SUCCESS"    
+        return "UNKNOWN_ERROR"

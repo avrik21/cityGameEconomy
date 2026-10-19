@@ -7,7 +7,7 @@ class FarmManager:
     def upgrade_farm(self, farm_id):
         if not isinstance(farm_id, int):
             return "NOT_INTEGER"
-        if farm_id < 0:
+        if farm_id <= 0:
             return "INVALID_ID"
 
         for item in self.city.get_buildings():

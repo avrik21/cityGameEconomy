@@ -7,7 +7,7 @@ class FactoryManager:
     def upgrade_factory(self, factory_id):
         if not isinstance(factory_id, int):
             return "NOT_INTEGER" 
-        if factory_id < 0:
+        if factory_id <= 0:
             return "INVALID_ID"
 
         for item in self.city.get_buildings():

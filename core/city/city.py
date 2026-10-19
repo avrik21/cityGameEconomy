@@ -1,3 +1,5 @@
+import copy
+
 class City:
     def __init__(self):
         self.__money = 1000
@@ -23,7 +25,7 @@ class City:
     def get_buildings(self):
         result = []
         for item in self.__buildings:
-            result.append(item)
+            result.append(copy.deepcopy(item))
         return result
 
     def add_money(self, amount):

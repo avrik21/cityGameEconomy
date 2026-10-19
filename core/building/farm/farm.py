@@ -1,4 +1,3 @@
-# from core.building.building import Building
 from core.building.building import Building
 
 class Farm(Building):
