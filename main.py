@@ -3,12 +3,12 @@ from core.building.factory.factory import Factory
 from core.city.city import City
 from core.building.farm.farm_manager import FarmManager
 from core.building.factory.factory_manager import FactoryManager
-from core.product_manager import ProductManager
+from core.production_manager import ProductionManager
 
 city = City()
 farm_manager = FarmManager(city)
 factory_manager = FactoryManager(city)
-product_manager = ProductManager(city)
+product_manager = ProductionManager(city)
 
 farm1 = Farm("farm", 1000, 100)
 farm2 = Farm("farm", 1000, 100)

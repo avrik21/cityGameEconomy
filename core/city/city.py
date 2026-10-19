@@ -21,7 +21,10 @@ class City:
         self.__buildings.remove(building)
 
     def get_buildings(self):
-        return self.__buildings
+        result = []
+        for item in self.__buildings:
+            result.append(item)
+        return result
 
     def add_money(self, amount):
         if not isinstance(amount, int):
@@ -37,6 +40,8 @@ class City:
             return "NOT_INTEGER"
         if amount > self.__money:
             return "INSUFFICIENT_MONEY"
+        if amount <= 0:
+            return "LESS_ZERO"
 
         self.__money -= amount
         return "SUCCESS"
@@ -55,7 +60,8 @@ class City:
             return "NOT_INTEGER"
         if amount > self.__citizens:
             return "INSUFFICIENT_CITIZENS"
-        
+        if amount <= 0:
+            return "LESS_ZERO"
 
         self.__citizens -= amount
         return "SUCCESS"
@@ -74,6 +80,8 @@ class City:
             return "NOT_INTEGER"
         if amount > self.__food:
             return "INSUFFICIENT_FOOD"
+        if amount <= 0:
+            return "LESS_ZERO"
 
         self.__food -= amount
         return "SUCCESS"
