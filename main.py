@@ -3,7 +3,7 @@ from core.building.factory.factory import Factory
 from core.city.city import City
 from core.building.farm.farm_manager import FarmManager
 from core.building.factory.factory_manager import FactoryManager
-from core.production_manager import ProductManager
+from core.product_manager import ProductManager
 
 city = City()
 farm_manager = FarmManager(city)

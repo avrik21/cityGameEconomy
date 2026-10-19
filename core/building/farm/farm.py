@@ -13,3 +13,6 @@ class Farm(Building):
         self.food_per_cycle += 50
         self.level += 1
         return "SUCCESS"
+
+    def get_food_per_cycle(self):
+        return self.food_per_cycle
