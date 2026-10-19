@@ -3,10 +3,12 @@ from core.building.factory.factory import Factory
 from core.city.city import City
 from core.building.farm.farm_manager import FarmManager
 from core.building.factory.factory_manager import FactoryManager
+from core.production_manager import ProductManager
 
 city = City()
 farm_manager = FarmManager(city)
 factory_manager = FactoryManager(city)
+product_manager = ProductManager(city)
 
 farm1 = Farm("farm", 1000, 100)
 farm2 = Farm("farm", 1000, 100)
@@ -28,26 +30,13 @@ city.add_building(factory2)
 city.add_building(factory3)
 city.add_building(factory4)
 
-print(farm_manager.upgrade_farm(1))
-print(farm_manager.upgrade_farm(1))
-print(farm_manager.upgrade_farm(1))
-print(farm_manager.upgrade_farm(1))
-print(farm_manager.upgrade_farm(1))
+farm_manager.upgrade_farm(1)
 
-print(factory_manager.upgrade_factory(5))
-print(factory_manager.upgrade_factory(6))
-print(factory_manager.upgrade_factory(7))
-print(factory_manager.upgrade_factory(8))
-print(factory_manager.upgrade_factory(8))
+print(city.get_food())
 
+product_manager.add_food()
 
-print(factory_manager.upgrade_factory(999))
-print(factory_manager.upgrade_factory(-999))
-print(factory_manager.upgrade_factory("1"))
-
-print(farm_manager.upgrade_farm(999))
-print(farm_manager.upgrade_farm(-999))
-print(farm_manager.upgrade_farm("1"))
+print(city.get_food())
 
 for i in city.get_buildings():
     print(i.__dict__)
