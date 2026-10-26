@@ -1,16 +1,15 @@
 from core.building.farm.farm_manager import FarmManager
 from core.building.farm.farm import Farm
 from core.city.city import City
-import pytest
-
-
 
 class TestFarm:
     def setup_method(self):
         self.city = City()
         self.farm_manager = FarmManager(self.city)
         self.farm1 = Farm("farm", 1000, 100)
+        self.farm2 = Farm("farm", 1000, 100)
         self.city.add_building(self.farm1)
+        self.city.add_building(self.farm2)
     
     def test_upgrade_farm(self):
         farm_id = self.farm1.get_id()
@@ -44,3 +43,22 @@ class TestFarm:
         assert result == "MAX_LEVEL"
         assert self.farm_manager.get_farm(farm_id).get_level() == 5
         assert self.farm_manager.get_farm(farm_id).get_food_per_cycle() == 250       
+
+    def test_max_level(self):
+        farm_id = self.farm2.get_id()
+        self.farm_manager.upgrade_farm(farm_id)
+        self.farm_manager.upgrade_farm(farm_id)
+        self.farm_manager.upgrade_farm(farm_id)
+        self.farm_manager.upgrade_farm(farm_id)
+        self.farm_manager.upgrade_farm(farm_id)
+        result = self.farm_manager.upgrade_farm(farm_id)
+
+        assert result == "MAX_LEVEL"
+
+    def test_not_integer(self):
+        result = self.farm_manager.upgrade_farm("2")
+        assert result == "NOT_INTEGER"
+
+    def test_invalid_id(self):
+        result = self.farm_manager.upgrade_farm(-2)
+        assert result == "INVALID_ID"
