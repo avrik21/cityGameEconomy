@@ -6,6 +6,7 @@ import pytest
     [
         (100, "SUCCESS", 200),
         (300, "SUCCESS", 0),
+        (-300, "LESS_ZERO", 300),
         (400, "INSUFFICIENT_FOOD", 300),])
 def test_spend_food(amount, expected_result, expected_food):
     city = City()
