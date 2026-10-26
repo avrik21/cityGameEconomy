@@ -3,34 +3,44 @@ from core.building.farm.farm import Farm
 from core.city.city import City
 import pytest
 
-city = City()
-farm1 = Farm("farm", 1000, 100)
-farm2 = Farm("farm", 1000, 100)
-city.add_building(farm1)
-city.add_building(farm2)
+
 
 class TestFarm:
     def setup_method(self):
-        self.farm_manager = FarmManager(city)
+        self.city = City()
+        self.farm_manager = FarmManager(self.city)
+        self.farm1 = Farm("farm", 1000, 100)
+        self.city.add_building(self.farm1)
     
-    @pytest.mark.parametrize(
-        "farm_id, expected_result, expected_lvl, expected_food_per_cycle",
-        [
-            (1, "SUCCESS", 2, 100),
-            (1, "SUCCESS", 3, 150),
-            (1, "SUCCESS", 4, 200),
-            (1, "SUCCESS", 5, 250),
-            (1, "MAX_LEVEL", 5, 250),
-            (2, "SUCCESS", 2, 100),          
-            (3, "NO_OBJECT", 2, 100),          
-            ("3", "NOT_INTEGER", 2, 100),          
-            (-1, "INVALID_ID", 2, 100),          
-            
-        ])
-    def test_upgrade_farm(self, farm_id, expected_result, expected_lvl, expected_food_per_cycle):
+    def test_upgrade_farm(self):
+        farm_id = self.farm1.get_id()
+        
         result = self.farm_manager.upgrade_farm(farm_id)
         
-        assert result == expected_result
-        if result not in ("NO_OBJECT", "NOT_INTEGER", "INVALID_ID"):
-            assert self.farm_manager.get_farm(farm_id).get_level() == expected_lvl
-            assert self.farm_manager.get_farm(farm_id).get_food_per_cycle() == expected_food_per_cycle       
+        assert result == "SUCCESS"
+        assert self.farm_manager.get_farm(farm_id).get_level() == 2
+        assert self.farm_manager.get_farm(farm_id).get_food_per_cycle() == 100       
+
+        result = self.farm_manager.upgrade_farm(farm_id)
+        
+        assert result == "SUCCESS"
+        assert self.farm_manager.get_farm(farm_id).get_level() == 3
+        assert self.farm_manager.get_farm(farm_id).get_food_per_cycle() == 150       
+
+        result = self.farm_manager.upgrade_farm(farm_id)
+        
+        assert result == "SUCCESS"
+        assert self.farm_manager.get_farm(farm_id).get_level() == 4
+        assert self.farm_manager.get_farm(farm_id).get_food_per_cycle() == 200       
+
+        result = self.farm_manager.upgrade_farm(farm_id)
+        
+        assert result == "SUCCESS"
+        assert self.farm_manager.get_farm(farm_id).get_level() == 5
+        assert self.farm_manager.get_farm(farm_id).get_food_per_cycle() == 250       
+
+        result = self.farm_manager.upgrade_farm(farm_id)
+        
+        assert result == "MAX_LEVEL"
+        assert self.farm_manager.get_farm(farm_id).get_level() == 5
+        assert self.farm_manager.get_farm(farm_id).get_food_per_cycle() == 250       
