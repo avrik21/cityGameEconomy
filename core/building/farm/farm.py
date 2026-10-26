@@ -15,3 +15,6 @@ class Farm(Building):
 
     def get_food_per_cycle(self):
         return self.__food_per_cycle
+
+    def get_level(self):
+        return self.__level

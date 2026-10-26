@@ -14,3 +14,12 @@ class Factory(Building):
         self.__raw_material += 5
         self.__level += 1
         return "SUCCESS"
+
+    def get_product_per_cycle(self):
+        return self.__product_per_cycle
+
+    def get_raw_material(self):
+        return self.__raw_material
+
+    def get_level(self):
+        return self.__level

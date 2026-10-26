@@ -31,6 +31,8 @@ city.add_building(factory3)
 city.add_building(factory4)
 
 print(farm_manager.upgrade_farm(4))
+print(farm_manager.upgrade_farm(4))
+print(farm_manager.upgrade_farm(4))
 
 print(city.get_food())
 

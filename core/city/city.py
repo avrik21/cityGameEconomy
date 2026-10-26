@@ -28,7 +28,6 @@ class City:
             return "NOT_INTEGER"
         if amount < 0:
             return "NEGATIVE_AMOUNT"
-
         self.__money += amount
         return "SUCCESS"
 
@@ -66,7 +65,7 @@ class City:
     def add_food(self, amount):
         if not isinstance(amount, int):
             return "NOT_INTEGER"
-        if amount < 0:
+        if amount <= 0:
             return "NEGATIVE_AMOUNT"
 
         self.__food += amount
