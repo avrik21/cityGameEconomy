@@ -10,7 +10,7 @@ class Factory(Building):
     def upgrade_factory(self):
         if self.__level == 5:
             return "MAX_LEVEL"
-        self.__product_per_cycle += 20
+        self.__product_per_cycle += 10
         self.__raw_material += 5
         self.__level += 1
         return "SUCCESS"

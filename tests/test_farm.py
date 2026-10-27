@@ -48,7 +48,6 @@ class TestFarm:
         self.farm_manager.upgrade_farm(farm_id)
         self.farm_manager.upgrade_farm(farm_id)
         self.farm_manager.upgrade_farm(farm_id)
-        self.farm_manager.upgrade_farm(farm_id)
         result = self.farm_manager.upgrade_farm(farm_id)
 
         assert result == "MAX_LEVEL"
@@ -63,6 +62,6 @@ class TestFarm:
         result = self.farm_manager.upgrade_farm(-2)
         assert result == "INVALID_ID"
 
-    def test_invalid_id(self):
+    def test_non_object(self):
         result = self.farm_manager.upgrade_farm(3)
         assert result == "NO_OBJECT"

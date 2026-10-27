@@ -17,3 +17,14 @@ class FactoryManager:
                     return "SUCCESS"
                 return "MAX_LEVEL"
         return "NO_OBJECT"
+
+    def get_factory(self, factory_id):
+        if not isinstance(factory_id, int):
+            return "NOT_INTEGER" 
+        if factory_id <= 0:
+            return "INVALID_ID"
+
+        for item in self.city.get_buildings():
+            if isinstance(item, Factory) and item.get_id() == factory_id:
+                return item
+        return "NO_OBJECT"
