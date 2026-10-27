@@ -16,7 +16,7 @@ class TestFactory:
         raw_material = 15
         product_per_cycle = 30
 
-        for i in range(1, 5):
+        for _ in range(1, 5):
             result = self.factory_manager.upgrade_factory(factory_id)
 
             assert result == "SUCCESS"
@@ -49,5 +49,6 @@ class TestFactory:
         assert result == "INVALID_ID"
 
     def test_non_object(self):
-        result = self.factory_manager.upgrade_factory(3)
+        factory_id = self.factory1.get_id()
+        result = self.factory_manager.upgrade_factory(factory_id + 5)
         assert result == "NO_OBJECT"

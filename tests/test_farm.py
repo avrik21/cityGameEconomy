@@ -63,5 +63,6 @@ class TestFarm:
         assert result == "INVALID_ID"
 
     def test_non_object(self):
-        result = self.farm_manager.upgrade_farm(3)
+        farm_id = self.farm1.get_id()
+        result = self.farm_manager.upgrade_farm(farm_id + 5)
         assert result == "NO_OBJECT"
