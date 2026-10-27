@@ -1,8 +1,8 @@
 from core.building.building import Building
 
 class Farm(Building):
-    def __init__(self, name, construction_cost, maintenance_cost):
-        super().__init__(name, construction_cost, maintenance_cost)
+    def __init__(self, name="farm", construction_cost=1000, maintenance_cost=100):
+        super().__init__(name="farm", construction_cost=1000, maintenance_cost=100)
         self.__food_per_cycle = 50
         self.__level = 1
 

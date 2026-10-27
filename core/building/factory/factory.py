@@ -1,7 +1,7 @@
 from core.building.building import Building
 
 class Factory(Building):
-    def __init__(self, name, construction_cost, maintenance_cost):
+    def __init__(self, name="factory", construction_cost=1500, maintenance_cost=50):
         super().__init__(name, construction_cost, maintenance_cost)
         self.__product_per_cycle = 20
         self.__raw_material = 10
